@@ -10,8 +10,8 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :last_name, :first_name, :password, :password_confirmation, :length => { :maximum => 50 } 
-  validates :first_name, :presence => true
+  attr_accessible :email, :last_name, :first_name, :password_digest, :password, :password_confirmation, :length => { :maximum => 50 } 
+  validates :first_name, :last_name, :presence => true
   validates :password, :presence => true, :length => { :minimum => 6 }
   has_secure_password
   validates_confirmation_of :password
