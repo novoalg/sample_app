@@ -14,7 +14,7 @@ require 'spec_helper'
 
 describe User do
   before do
-   @user = User.new(:first_name => "Example", :last_name => "eg", :email => "user@example.com", :password_digest => "foobar", :password => "foobar", :password_confirmation => "foobar") 
+   @user = User.new(:first_name => "Example", :last_name => "eg", :email => "user@example.com", :password => "foobar", :password_confirmation => "foobar") 
   end 
   subject { @user }
 
@@ -26,11 +26,16 @@ describe User do
   it { should respond_to(:password_confirmation) }
   it { should be_valid }
 
+  describe "remember token" do
+	before { @user.save }
+	it { @user.remember_token.should_not be_blank }
+  end
 
-describe "when password doesn't match confirmation" do
+
+ describe "when password doesn't match confirmation" do
   before { @user.password_confirmation = "mismatch" }
   it { should_not be_valid }
-end
+ end
  
  describe "when name is not present" do
   before { @user.first_name = " " }
@@ -57,10 +62,10 @@ end
    end
   end
  end
-describe "when password is not present" do
+ describe "when password is not present" do
   before { @user.password = @user.password_confirmation = " " }
   it { should_not be_valid }
-end
+ end
  describe "when email format is valid" do
   it "should be valid" do
    addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
