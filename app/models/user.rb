@@ -2,15 +2,19 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  email           :string(255)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :last_name, :first_name, :admin, :password_digest, :password, :password_confirmation, :length => { :maximum => 50 } 
+  attr_accessible :email, :last_name, :first_name, :password_digest, :password, :password_confirmation, :length => { :maximum => 50 } 
   validates :first_name, :last_name, :presence => true
   validates :password, :presence => true, :length => { :minimum => 6 }
   has_secure_password
