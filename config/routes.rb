@@ -8,5 +8,6 @@ SampleApp::Application.routes.draw do
  	match '/contact', :to => 'static_pages#contact'
  	match '/signup', :to => 'users#new'
  	match '/signin', :to => 'sessions#new'
+    match '/edit_user', :to => 'users#edit'
 	root :to => 'static_pages#home'
 end
