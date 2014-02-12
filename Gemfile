@@ -6,11 +6,11 @@ gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '~> 3.0.5' 
 gem 'bootstrap-will_paginate', '0.0.6'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'jquery-rails'
 gem 'rubyzip','0.9.5'
 gem 'json'
- gem 'nokogiri', '~> 1.5.10'
+gem 'nokogiri', '~> 1.5.10'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -23,7 +23,6 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 group :development do
   gem 'annotate', '2.5.0'
 end
