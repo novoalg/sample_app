@@ -31,6 +31,13 @@ subject { page }
         end
     end
 
+    describe "micropost reply" do
+        before { FactoryGirl.create(:micropost, :user => user) }
+        it "should reply to a micropost" do
+           it { should click_link "reply" }
+        end
+    end
+
     describe "micropost destruction" do
         before { FactoryGirl.create(:micropost, :user => user) }
         

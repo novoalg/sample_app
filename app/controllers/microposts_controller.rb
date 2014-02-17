@@ -1,8 +1,12 @@
 class MicropostsController < ApplicationController
+    #include MicropostsHelper
     before_filter :signed_in_user, :only => [:create, :destroy]
     before_filter :correct_user, :only => [:destroy]
 
     def index
+    end
+
+    def reply
     end
     
     def create
